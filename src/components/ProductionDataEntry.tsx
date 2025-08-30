@@ -1,28 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Save, 
-  X, 
-  Calendar, 
-  Clock, 
-  User, 
-  Settings, 
-  Layers, 
-  Droplets, 
-  Shirt,
-  Target,
-  BarChart3,
-  AlertTriangle,
-  Award,
-  Wrench,
-  Thermometer,
-  Beaker,
-  Gauge,
-  Package,
-  Scissors,
-  Needle,
-  Palette
-} from 'lucide-react';
+import { Save, X, Calendar, Clock, User, Settings, Layers, Droplets, Shirt, Target, BarChart3, AlertTriangle, Award, Wrench, Thermometer, Beaker, Gauge, Package, Scissors, BedDouble as Needle, Palette } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { TypedMemoryInput } from './TypedMemoryInput';
