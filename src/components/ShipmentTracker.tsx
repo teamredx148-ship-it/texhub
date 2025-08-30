@@ -20,7 +20,8 @@ import {
   ExternalLink,
   Plane,
   Ship,
-  Car
+  Car,
+  Settings as SettingsIcon
 } from 'lucide-react';
 import { ShipmentDetails } from '../types/order';
 import { Input } from './ui/input';
@@ -205,7 +206,7 @@ export const ShipmentTracker: React.FC<ShipmentTrackerProps> = ({
             {/* Shipping Method */}
             <div>
               <label className={labelClasses}>
-                <Settings className="inline h-4 w-4 mr-2" />
+                <SettingsIcon className="inline h-4 w-4 mr-2" />
                 Shipping Method
               </label>
               <Select.Root 
