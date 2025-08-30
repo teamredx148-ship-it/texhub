@@ -69,6 +69,7 @@ export const defaultSettings: UserSettings = {
     'proforma-invoice',
     'inventory',
     'order-management',
+    'production-data',
     'social-portal',
     'settings'
   ],
@@ -78,6 +79,7 @@ export const defaultSettings: UserSettings = {
     'proforma-invoice',
     'inventory',
     'order-management',
+    'production-data',
     'social-portal',
     'settings'
   ],
