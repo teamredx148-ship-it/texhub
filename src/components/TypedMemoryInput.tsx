@@ -30,6 +30,9 @@ export const TypedMemoryInput: React.FC<TypedMemoryInputProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
+  // Ensure value is always a string
+  const safeValue = value || '';
+
   // Load saved values from localStorage
   useEffect(() => {
     const saved = localStorage.getItem(`typedMemory_${storageKey}`);
