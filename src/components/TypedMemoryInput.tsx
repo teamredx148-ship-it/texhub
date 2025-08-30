@@ -155,7 +155,7 @@ export const TypedMemoryInput: React.FC<TypedMemoryInputProps> = ({
       <input
         ref={inputRef}
         type={type}
-        value={value}
+        value={safeValue}
         onChange={handleInputChange}
         onBlur={handleInputBlur}
         onFocus={handleInputFocus}
