@@ -76,10 +76,10 @@ export const TypedMemoryInput: React.FC<TypedMemoryInputProps> = ({
 
   // Filter suggestions based on current input
   const getFilteredSuggestions = () => {
-    if (!value.trim()) return [];
+    if (!safeValue.trim()) return [];
     return suggestions.filter(suggestion => 
-      suggestion.toLowerCase().includes(value.toLowerCase()) && 
-      suggestion !== value
+      suggestion.toLowerCase().includes(safeValue.toLowerCase()) && 
+      suggestion !== safeValue
     ).slice(0, 5);
   };
 
@@ -107,7 +107,7 @@ export const TypedMemoryInput: React.FC<TypedMemoryInputProps> = ({
 
   const handleInputFocus = () => {
     const filtered = getFilteredSuggestions();
-    setShowSuggestions(filtered.length > 0 && value.trim().length > 0);
+    setShowSuggestions(filtered.length > 0 && safeValue.trim().length > 0);
   };
 
   const handleSuggestionClick = (suggestion: string) => {

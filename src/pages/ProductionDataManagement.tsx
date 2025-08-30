@@ -74,18 +74,17 @@ export function ProductionDataManagement({ user }: ProductionDataManagementProps
 
     setLoading(true);
     const entriesCollectionRef = collection(db, "users", user.uid, "productionEntries");
-    const q = query(
-      entriesCollectionRef, 
-      where("type", "==", productionType),
-      orderBy("timestamp", "desc")
-    );
+    const q = query(entriesCollectionRef, orderBy("timestamp", "desc"));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const fetchedEntries: ProductionEntry[] = snapshot.docs.map(doc => ({
+      const allEntries: ProductionEntry[] = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       })) as ProductionEntry[];
-      setEntries(fetchedEntries);
+      
+      // Filter by production type on the client side
+      const filteredEntries = allEntries.filter(entry => entry.type === productionType);
+      setEntries(filteredEntries);
       setLoading(false);
     }, (error) => {
       console.error("Error fetching production entries:", error);
