@@ -77,7 +77,6 @@ export function ProductionDataManagement({ user }: ProductionDataManagementProps
     const q = query(
       entriesCollectionRef, 
       where("type", "==", productionType),
-      orderBy("date", "desc"),
       orderBy("timestamp", "desc")
     );
 
