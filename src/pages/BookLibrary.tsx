@@ -8,6 +8,7 @@ import { Book as BookType, BookUploadData } from '../types/book';
 import { db } from '../lib/firebaseConfig';
 import { collection, addDoc, getDocs, query, orderBy, updateDoc, doc, increment } from 'firebase/firestore';
 import { LoadingSpinner } from '../components/LoadingSpinner';
+import { PDFViewer } from '../components/PDFViewer';
 
 interface BookLibraryProps {
   user: any;
@@ -482,15 +483,13 @@ export function BookLibrary({ user }: BookLibraryProps) {
                 </button>
               </div>
             </motion.div>
-            <motion.iframe
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              src={convertGoogleDriveUrl(selectedBook.pdfUrl, false)}
-              className="flex-1 w-full bg-background"
-              title={selectedBook.bookName}
-              allow="autoplay"
-            />
+            <div className="flex-1 w-full bg-background">
+              <PDFViewer
+                pdfUrl={selectedBook.pdfUrl}
+                title={selectedBook.bookName}
+                onDownload={() => handleDownloadBook(selectedBook)}
+              />
+            </div>
           </div>
         </motion.div>
       )}
